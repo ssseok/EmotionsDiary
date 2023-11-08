@@ -10,6 +10,13 @@ export interface MoodType {
   description: string;
 }
 
+export interface DiaryType {
+  id: 1;
+  mood: MoodType;
+  date: string;
+  diary: string;
+}
+
 // title
 export interface TitleProps {
   mainTitle: string;
