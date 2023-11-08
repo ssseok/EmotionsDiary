@@ -26,4 +26,10 @@ export interface EmotionProps {
 export interface EmotionSelectProps {
   title: string;
   moods: MoodType[];
+  emotionChage: (data: MoodType) => void;
+}
+
+// calendar_select
+export interface CalendarSelectProps {
+  dateChage: (date: string) => void;
 }

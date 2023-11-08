@@ -1,6 +1,21 @@
-import { type EmotionSelectProps } from "../interface/type";
+import { useState } from "react";
+import { type MoodType, type EmotionSelectProps } from "../interface/type";
 
-export default function EmotionSelect({ title, moods }: EmotionSelectProps) {
+export default function EmotionSelect({
+  title,
+  moods,
+  emotionChage,
+}: EmotionSelectProps) {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    mood: MoodType,
+  ) => {
+    const { value } = event.target;
+    setValue(value);
+    emotionChage(mood);
+  };
   return (
     <>
       <span className="block">{title}</span>
@@ -14,6 +29,10 @@ export default function EmotionSelect({ title, moods }: EmotionSelectProps) {
                 type="radio"
                 name="mood"
                 className="peer w-0 h-0 absolute inset-0"
+                checked={value === mood.name}
+                onChange={event => {
+                  handleChange(event, mood);
+                }}
               />
               <div className="peer-checked:border-2 rounded-xl border-red-500 p-1">
                 <img src={`./images/${mood.name}.svg`} alt={mood.name} />
