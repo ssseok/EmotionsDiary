@@ -1,7 +1,4 @@
-interface TitleProps {
-  mainTitle: string;
-  subTitle?: string;
-}
+import { type TitleProps } from "../interface/type";
 
 export default function Title({ mainTitle, subTitle }: TitleProps) {
   return (

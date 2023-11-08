@@ -10,13 +10,19 @@ export interface MoodType {
   description: string;
 }
 
+// title
+export interface TitleProps {
+  mainTitle: string;
+  subTitle?: string;
+}
+
 // emotion
 export interface EmotionProps {
   data: MoodType;
   size?: "small" | "medium" | "large"; // small, medium, large
 }
 
-// emotion
+// emotion_select
 export interface EmotionSelectProps {
   title: string;
   moods: MoodType[];
