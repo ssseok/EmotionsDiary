@@ -5,6 +5,7 @@ import { type DiaryType, type MoodType } from "../interface/type";
 import { useNavigate } from "react-router-dom";
 import { diaryState } from "../components/data/dataState";
 import { useRecoilState } from "recoil";
+import Button from "../components/Button";
 
 export default function TodayIs() {
   const navigate = useNavigate();
@@ -33,15 +34,12 @@ export default function TodayIs() {
         <CalendarSelect dateChage={handleDateChage} />
       </div>
       <div className="py-2">
-        <button
-          type="button"
-          className="w-full py-4 px-1 block rounded-3xl text-white text-sm font-medium bg-mood-blue-700"
+        <Button
+          text="일기 쓰러 가기"
           onClick={() => {
             navigate("/mood");
           }}
-        >
-          일기 쓰러 가기
-        </button>
+        />
       </div>
     </>
   );

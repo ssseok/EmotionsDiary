@@ -40,3 +40,17 @@ export interface EmotionSelectProps {
 export interface CalendarSelectProps {
   dateChage: (date: string) => void;
 }
+
+// button
+export interface ButtonProps {
+  text: string;
+  type?: "button" | "submit";
+  formId?: string;
+  onClick?: () => void;
+}
+
+// diary_input
+export interface DirayInputProps {
+  isReset: boolean;
+  onChange: (value: string) => void;
+}
