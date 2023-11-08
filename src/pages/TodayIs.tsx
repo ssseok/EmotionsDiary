@@ -21,6 +21,12 @@ export default function TodayIs() {
     setDiary(prev => ({ ...prev, mood }));
   };
 
+  const handleClick = () => {
+    const id = new Date().getTime() * 1000 * 60;
+    setDiary(prev => ({ ...prev, id }));
+    navigate("/mood");
+  };
+
   return (
     <>
       <div className="py-2">
@@ -34,12 +40,7 @@ export default function TodayIs() {
         <CalendarSelect dateChage={handleDateChage} />
       </div>
       <div className="py-2">
-        <Button
-          text="일기 쓰러 가기"
-          onClick={() => {
-            navigate("/mood");
-          }}
-        />
+        <Button text="일기 쓰러 가기" onClick={handleClick} />
       </div>
     </>
   );

@@ -1,23 +1,33 @@
 import { useState } from "react";
 import Emotion from "../components/Emotion";
 import { moods } from "../components/data/common";
-import { useRecoilState } from "recoil";
-import { diaryState } from "../components/data/dataState";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { diaryListState, diaryState } from "../components/data/dataState";
 import DiaryInput from "../components/DiaryInput";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Mood() {
+  const navigate = useNavigate();
   const [diary, setDiary] = useRecoilState(diaryState);
   const { date, mood } = diary;
+
+  const setDiaryList = useSetRecoilState(diaryListState);
 
   const [diaryValue, setDiaryValue] = useState("");
   const [isReset, setIsReset] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setDiary(prev => ({ ...prev, diary: diaryValue }));
+    // 내부 input
+    const resultDiary = { ...diary, diary: diaryValue };
+    setDiary(resultDiary);
     setDiaryValue("");
     setIsReset(true);
+    // diaryList 업데이트
+    setDiaryList(prev => [...prev, resultDiary]);
+    // 페이지 이동
+    navigate("/");
   };
 
   console.log({ diary, diaryValue });

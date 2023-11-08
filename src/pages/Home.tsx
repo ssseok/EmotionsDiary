@@ -2,8 +2,17 @@ import { Link } from "react-router-dom";
 import Emotion from "../components/Emotion";
 import Title from "../components/Title";
 import { moods } from "../components/data/common";
+import { useRecoilValue } from "recoil";
+import { diaryListState } from "../components/data/dataState";
+import { useEffect } from "react";
 
 export default function Home() {
+  const diaryList = useRecoilValue(diaryListState);
+
+  useEffect(() => {
+    console.log(diaryList);
+  }, [diaryList]);
+
   return (
     <div className="flex flex-col h-full items-center">
       <Title mainTitle="10월" subTitle="2023년" />
