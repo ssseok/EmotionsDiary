@@ -17,11 +17,11 @@ export default function Emotion({ data, size }: EmotionProps) {
   ];
   return (
     <div
-      className={`p-1 w-${
+      className={`p-1 flex justify-center w-${
         size ? sizeList.find(item => item.size === size)?.width : "fit"
-      } mx-auto text-center`}
+      } text-center`}
     >
-      <img src={`/images/${data.name}.svg`} alt={data.name} />
+      <img src={`./images/${data.name}.svg`} alt={data.name} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { type DateType, type CalendarSelectProps } from "../interface/type";
-import { daysOfWeek } from "./data/common";
+import { daysOfWeek, totalDate } from "./data/common";
 
 export default function CalendarSelect({ dateChage }: CalendarSelectProps) {
   const handleChange = (value: any | null) => {
@@ -16,9 +16,7 @@ export default function CalendarSelect({ dateChage }: CalendarSelectProps) {
       month,
       day,
       dayOfWeeks,
-      totalDate: `${year}-${month < 10 ? "0" : ""}${month}-${
-        day < 10 ? "0" : ""
-      }${day}`,
+      totalDate: totalDate(year, month, day),
       totalText,
     };
     dateChage(resultDate);

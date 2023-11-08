@@ -34,7 +34,7 @@ export interface TitleProps {
 // emotion
 export interface EmotionProps {
   data: MoodType;
-  size?: "small" | "medium" | "large"; // small, medium, large
+  size?: string; // small, medium, large
 }
 
 // emotion_select
@@ -61,4 +61,9 @@ export interface ButtonProps {
 export interface DirayInputProps {
   isReset: boolean;
   onChange: (value: string) => void;
+}
+
+// calender_view
+export interface CalendarViewProps {
+  diaryList: DiaryType[];
 }

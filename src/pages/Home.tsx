@@ -4,6 +4,7 @@ import Title from "../components/Title";
 import { useRecoilValue } from "recoil";
 import { diaryListState } from "../components/data/dataState";
 import { useEffect } from "react";
+import CalenderView from "../components/CalenderView";
 
 export default function Home() {
   const diaryList = useRecoilValue(diaryListState);
@@ -14,12 +15,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-full items-center">
-      <Title mainTitle="10월" subTitle="2023년" />
-      <div className="flex flex-wrap">
-        {diaryList.map(diary => (
-          <Emotion key={diary.id} data={diary.mood} />
-        ))}
+      <Title mainTitle={"10월"} />
+      <div className="py-6">
+        <CalenderView diaryList={diaryList} />
       </div>
+
       <Link
         to={"/today-is"}
         className="w-10 h-10 bg-mood-purple rounded-full flex items-center justify-center item relative mt-auto"

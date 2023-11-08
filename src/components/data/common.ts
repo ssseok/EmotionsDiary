@@ -52,3 +52,6 @@ export const daysOfWeek = [
   "금요일",
   "토요일",
 ];
+
+export const totalDate = (year: number, month: number, day: number): string =>
+  `${year}-${month < 10 ? "0" : ""}${month}-${day < 10 ? "0" : ""}${day}`;

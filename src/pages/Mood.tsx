@@ -46,7 +46,7 @@ export default function Mood() {
           {/* START: date */}
         </div>
         <div className="py-2">
-          <Emotion data={mood} />
+          <Emotion data={mood} size={"large"} />
         </div>
         <div className="py-2">
           <Title mainTitle={mood.description} />
