@@ -9,11 +9,19 @@ export interface MoodType {
   name: string;
   description: string;
 }
+export interface DateType {
+  year: number;
+  month: number;
+  day: number;
+  dayOfWeeks: string;
+  totalDate: string;
+  totalText: string;
+}
 
 export interface DiaryType {
   id: number;
   mood: MoodType;
-  date: string;
+  date: DateType;
   diary: string;
 }
 
@@ -38,7 +46,7 @@ export interface EmotionSelectProps {
 
 // calendar_select
 export interface CalendarSelectProps {
-  dateChage: (date: string) => void;
+  dateChage: (date: DateType) => void;
 }
 
 // button

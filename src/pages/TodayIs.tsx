@@ -1,7 +1,7 @@
 import CalendarSelect from "../components/CalendarSelect";
 import EmotionSelect from "../components/EmotionSelect";
 import { moods } from "../components/data/common";
-import { type DiaryType, type MoodType } from "../interface/type";
+import { type DateType, type MoodType } from "../interface/type";
 import { useNavigate } from "react-router-dom";
 import { diaryState } from "../components/data/dataState";
 import { useRecoilState } from "recoil";
@@ -12,7 +12,7 @@ export default function TodayIs() {
 
   const [diary, setDiary] = useRecoilState(diaryState);
 
-  const handleDateChage = (date: string) => {
+  const handleDateChage = (date: DateType) => {
     const result = { ...diary, date };
     setDiary(result);
   };

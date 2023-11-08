@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Emotion from "../components/Emotion";
 import Title from "../components/Title";
-import { moods } from "../components/data/common";
 import { useRecoilValue } from "recoil";
 import { diaryListState } from "../components/data/dataState";
 import { useEffect } from "react";
