@@ -25,6 +25,10 @@ export interface DiaryType {
   diary: string;
 }
 
+export interface CalendarDateType {
+  year: number;
+  month: number;
+}
 // title
 export interface TitleProps {
   mainTitle: string;
@@ -63,7 +67,7 @@ export interface DirayInputProps {
   onChange: (value: string) => void;
 }
 
-// calender_view
+// calendar_view
 export interface CalendarViewProps {
   diaryList: DiaryType[];
 }

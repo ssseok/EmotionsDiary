@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
-import Emotion from "../components/Emotion";
 import Title from "../components/Title";
 import { useRecoilValue } from "recoil";
-import { diaryListState } from "../components/data/dataState";
+import {
+  calendarDateState,
+  diaryListState,
+} from "../components/data/dataState";
 import { useEffect } from "react";
-import CalenderView from "../components/CalenderView";
+import CalendarView from "../components/CalendarView";
 
 export default function Home() {
   const diaryList = useRecoilValue(diaryListState);
+  const calendarDate = useRecoilValue(calendarDateState);
 
   useEffect(() => {
     console.log(diaryList);
@@ -15,9 +18,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-full items-center">
-      <Title mainTitle={"10월"} />
+      <Title
+        mainTitle={`${calendarDate.month}월`}
+        subTitle={`${calendarDate.year}년`}
+      />
       <div className="py-6">
-        <CalenderView diaryList={diaryList} />
+        <CalendarView diaryList={diaryList} />
       </div>
 
       <Link

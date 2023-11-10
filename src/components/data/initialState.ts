@@ -1,4 +1,8 @@
-import { type DateType, type DiaryType } from "../../interface/type";
+import {
+  type CalendarDateType,
+  type DateType,
+  type DiaryType,
+} from "../../interface/type";
 import { daysOfWeek } from "./common";
 
 const today = (): DateType => {
@@ -21,6 +25,16 @@ const today = (): DateType => {
   return resultDate;
 };
 
+const todayCalendarDate = (): CalendarDateType => {
+  const todayData = new Date();
+  const year = todayData.getFullYear();
+  const month = todayData.getMonth() + 1;
+  return {
+    year,
+    month,
+  };
+};
+
 export const initialDiary: DiaryType = {
   id: 1,
   date: today(),
@@ -31,3 +45,5 @@ export const initialDiary: DiaryType = {
     description: "우울해",
   },
 };
+
+export const initialCalendarDate: CalendarDateType = todayCalendarDate();

@@ -5,12 +5,19 @@ import {
   type PickersDayProps,
 } from "@mui/x-date-pickers";
 import { type Dayjs } from "dayjs";
-import { type CalendarViewProps } from "../interface/type";
+import {
+  type CalendarDateType,
+  type CalendarViewProps,
+} from "../interface/type";
 import Emotion from "./Emotion";
 import { totalDate } from "./data/common";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { useSetRecoilState } from "recoil";
+import { calendarDateState } from "./data/dataState";
 
-export default function CalenderView({ diaryList }: CalendarViewProps) {
+export default function CalendarView({ diaryList }: CalendarViewProps) {
+  const setCalendarDate = useSetRecoilState(calendarDateState);
+
   const handleChange = (value: any | null) => {
     // const { $y: year, $M, $D: day, $W } = value;
     console.log("value", value);
@@ -46,6 +53,16 @@ export default function CalenderView({ diaryList }: CalendarViewProps) {
     );
   };
 
+  const hadleCalendarChange = (value: Dayjs) => {
+    const year = value.year();
+    const month = value.month() + 1;
+    const result: CalendarDateType = {
+      year,
+      month,
+    };
+    console.log({ year, month });
+    setCalendarDate(result);
+  };
   // view
   return (
     <div className="bg-white rounded-3xl">
@@ -55,6 +72,8 @@ export default function CalenderView({ diaryList }: CalendarViewProps) {
             day: writeDay,
           }}
           onChange={handleChange}
+          onMonthChange={hadleCalendarChange}
+          onYearChange={hadleCalendarChange}
         />
       </LocalizationProvider>
     </div>
