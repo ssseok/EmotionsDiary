@@ -27,8 +27,7 @@ export default function CalendarView({ diaryList }: CalendarViewProps) {
       diary => diary.date.totalDate === selectedDate,
     );
 
-    // selectedDiary && navigate(`item/${selectedDiary.id}`);
-    console.log({ selectedDate, selectedDiary });
+    selectedDiary && navigate(`item/${selectedDiary.id}`);
   };
 
   const writeDay = (

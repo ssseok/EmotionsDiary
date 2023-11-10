@@ -5,33 +5,35 @@ import Emotion from "../components/Emotion";
 import Title from "../components/Title";
 import DiaryInput from "../components/DiaryInput";
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { useNavigate, useParams } from "react-router-dom";
 import { type DiaryType } from "../interface/type";
 import { diaryListState } from "../components/data/dataState";
 
 export default function Item() {
+  const navigate = useNavigate();
   const params = useParams();
+  const id = Number(params.itemId);
 
-  const diaryList = useRecoilValue(diaryListState);
+  const [diaryList, setDiaryList] = useRecoilState(diaryListState);
 
   const [selectedDiary, setSelectedDiary] = useState<DiaryType | null>(null);
 
   const updateDiary = () => {};
 
-  const removeDiary = () => {};
+  const removeDiary = () => {
+    const isConfirm = window.confirm("삭제하시겠습니까?");
+    if (!isConfirm) return;
+    const filterDiaryList = diaryList.filter(diary => diary.id !== id);
+    setDiaryList(filterDiaryList);
+    navigate("/");
+  };
 
   useEffect(() => {
-    const id = params.itemId;
-    diaryList.forEach(diary => {
-      console.log("diaryId", diary.id);
-      console.log("🚀 id:", id);
-    });
-    const item = id && diaryList.find(diary => diary.id === Number(id));
-    console.log("🚀  item:", item);
-
+    // 현재 데이터 세팅
+    const item = id && diaryList.find(diary => diary.id === id);
     item && setSelectedDiary(item);
-  }, [diaryList, params.itemId]);
+  }, [diaryList, id]);
 
   useEffect(() => {
     console.log("selectedDiary", selectedDiary);
