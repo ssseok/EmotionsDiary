@@ -64,7 +64,9 @@ export interface ButtonProps {
 // diary_input
 export interface DirayInputProps {
   isReset: boolean;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
+  value?: string;
+  readonly?: boolean;
 }
 
 // calendar_view

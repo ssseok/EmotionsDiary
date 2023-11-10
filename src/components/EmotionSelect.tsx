@@ -35,7 +35,7 @@ export default function EmotionSelect({
                 }}
               />
               <div className="peer-checked:border-2 rounded-xl border-red-500 p-1">
-                <img src={`./images/${mood.name}.svg`} alt={mood.name} />
+                <img src={`/images/${mood.name}.svg`} alt={mood.name} />
               </div>
             </label>
           </div>

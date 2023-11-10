@@ -14,13 +14,21 @@ import { totalDate } from "./data/common";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useSetRecoilState } from "recoil";
 import { calendarDateState } from "./data/dataState";
+import { useNavigate } from "react-router-dom";
 
 export default function CalendarView({ diaryList }: CalendarViewProps) {
+  const navigate = useNavigate();
   const setCalendarDate = useSetRecoilState(calendarDateState);
 
   const handleChange = (value: any | null) => {
-    // const { $y: year, $M, $D: day, $W } = value;
-    console.log("value", value);
+    const { $y: year, $M: month, $D: day } = value;
+    const selectedDate = totalDate(year, month + 1, day);
+    const selectedDiary = diaryList.find(
+      diary => diary.date.totalDate === selectedDate,
+    );
+
+    // selectedDiary && navigate(`item/${selectedDiary.id}`);
+    console.log({ selectedDate, selectedDiary });
   };
 
   const writeDay = (
@@ -60,7 +68,6 @@ export default function CalendarView({ diaryList }: CalendarViewProps) {
       year,
       month,
     };
-    console.log({ year, month });
     setCalendarDate(result);
   };
   // view
