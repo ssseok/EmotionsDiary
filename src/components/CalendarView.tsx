@@ -40,7 +40,7 @@ export default function CalendarView({ diaryList }: CalendarViewProps) {
     return (
       <div className="relative" key={props.day.toString()}>
         {isSelected && (
-          <div className="absolute left-0 top-0 z-10 -m-1">
+          <div className="absolute left-0 top-0 z-10 -m-1 pointer-events-none">
             <Emotion data={existDate.mood} />
           </div>
         )}
