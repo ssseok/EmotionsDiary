@@ -55,6 +55,7 @@ export default function CalendarView({ diaryList }: CalendarViewProps) {
           {...other}
           outsideCurrentMonth={outsideCurrentMonth}
           day={date}
+          disabled={!isSelected}
         />
       </div>
     );
