@@ -63,7 +63,7 @@ export default function Item() {
   }, [diaryList, id]);
 
   useEffect(() => {
-    console.log("selectedDiary", selectedDiary);
+    // console.log("selectedDiary", selectedDiary);
   }, [selectedDiary]);
 
   // view

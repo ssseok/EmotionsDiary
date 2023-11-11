@@ -13,7 +13,7 @@ export default function Home() {
   const calendarDate = useRecoilValue(calendarDateState);
 
   useEffect(() => {
-    console.log(diaryList);
+    // console.log(diaryList);
   }, [diaryList]);
 
   return (
