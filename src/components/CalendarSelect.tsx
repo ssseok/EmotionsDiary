@@ -2,6 +2,7 @@ import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { type DateType, type CalendarSelectProps } from "../interface/type";
 import { daysOfWeek, totalDate } from "./data/common";
+import dayjs from "dayjs";
 
 export default function CalendarSelect({ dateChage }: CalendarSelectProps) {
   const handleChange = (value: any | null) => {
@@ -24,7 +25,7 @@ export default function CalendarSelect({ dateChage }: CalendarSelectProps) {
   return (
     <div className="bg-mood-purple rounded-3xl">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DateCalendar onChange={handleChange} />
+        <DateCalendar onChange={handleChange} maxDate={dayjs(new Date())} />
       </LocalizationProvider>
     </div>
   );
