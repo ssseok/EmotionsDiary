@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { type DirayInputProps } from "../interface/type";
 
 export default function DiaryInput({
@@ -6,8 +6,12 @@ export default function DiaryInput({
   onChange,
   value,
   readonly,
+  isFocus,
+  bgColor,
 }: DirayInputProps) {
   const [input, setInput] = useState("");
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -19,14 +23,23 @@ export default function DiaryInput({
     isReset && setInput("");
   }, [isReset]);
 
+  useEffect(() => {
+    value && setInput(value);
+  }, [value]);
+
+  useEffect(() => {
+    isFocus && inputRef.current && inputRef.current.focus();
+  }, [isFocus]);
+
   return (
     <>
       <input
         type="text"
         placeholder="일기를 써주세요"
-        className="bg-mood-purple w-full rounded-md py-2 px-4"
         // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-        value={value || input}
+        className={`${bgColor || "bg-yellow-200"} w-full rounded-md py-2 px-4`}
+        value={input}
+        ref={inputRef}
         readOnly={!!readonly}
         onChange={handleChange}
       />

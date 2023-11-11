@@ -57,6 +57,7 @@ export interface CalendarSelectProps {
 export interface ButtonProps {
   text: string;
   type?: "button" | "submit";
+  className?: string;
   formId?: string;
   onClick?: () => void;
 }
@@ -66,6 +67,8 @@ export interface DirayInputProps {
   isReset: boolean;
   onChange?: (value: string) => void;
   value?: string;
+  isFocus?: boolean;
+  bgColor?: string;
   readonly?: boolean;
 }
 
