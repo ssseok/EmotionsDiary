@@ -50,6 +50,7 @@ export interface EmotionSelectProps {
 
 // calendar_select
 export interface CalendarSelectProps {
+  diaryList: DiaryType[];
   dateChage: (date: DateType) => void;
 }
 
