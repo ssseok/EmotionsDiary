@@ -29,7 +29,7 @@ export default function TodayIs() {
 
   return (
     <>
-      <div className="py-2">
+      <div className="pb-2">
         <EmotionSelect
           title="오늘 하루 어땠니?"
           moods={moods}
