@@ -72,7 +72,7 @@ export default function CalendarView({ diaryList }: CalendarViewProps) {
   };
   // view
   return (
-    <div className="bg-white rounded-3xl">
+    <div className="bg-mood-purple rounded-3xl">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
           slots={{
