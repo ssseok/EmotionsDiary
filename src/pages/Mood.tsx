@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Emotion from "../components/Emotion";
-import { moods } from "../components/data/common";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { diaryListState, diaryState } from "../components/data/dataState";
 import DiaryInput from "../components/DiaryInput";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import Title from "../components/Title";
+import { toast } from "react-toastify";
 
 export default function Mood() {
   const navigate = useNavigate();
@@ -20,6 +20,10 @@ export default function Mood() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (diaryValue.trim().length === 0) {
+      toast.error("글자를 입력해주세요.");
+      return;
+    }
     // 내부 input
     const resultDiary = { ...diary, diary: diaryValue };
     setDiary(resultDiary);

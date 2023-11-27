@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { type DiaryType } from "../interface/type";
 import { diaryListState } from "../components/data/dataState";
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 
 export default function Item() {
   const navigate = useNavigate();
@@ -44,6 +45,8 @@ export default function Item() {
 
     setDiaryList(updateDiaryList);
     setIsEditMode(false);
+    toast.success("수정되었습니다.");
+    navigate("/");
   };
 
   const removeDiary = () => {
@@ -51,6 +54,7 @@ export default function Item() {
     if (!isConfirm) return;
     const filterDiaryList = diaryList.filter(diary => diary.id !== id);
     setDiaryList(filterDiaryList);
+    toast.success("삭제되었습니다.");
     navigate("/");
   };
 
