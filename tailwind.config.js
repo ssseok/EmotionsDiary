@@ -5,9 +5,8 @@ module.exports = {
     extend: {
       colors: {
         "mood-gray-700": "#383737",
-        "mood-purple": "#E7E3FF",
-        "mood-blue-700": "#6045FF",
-        "mood-purple": "#E7E3FF",
+        "mood-lime-700": "#00C853",
+        "mood-lime": "#E8F5E9",
       },
       fontSize: {
         none: 0,

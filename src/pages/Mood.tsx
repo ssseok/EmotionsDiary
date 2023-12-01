@@ -35,8 +35,6 @@ export default function Mood() {
     navigate("/");
   };
 
-  // console.log({ diary, diaryValue });
-
   const handleChange = (value: string) => {
     setDiaryValue(value);
     isReset && setIsReset(false);

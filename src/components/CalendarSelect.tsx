@@ -59,7 +59,7 @@ export default function CalendarSelect({
     );
   };
   return (
-    <div className="bg-mood-purple rounded-3xl">
+    <div className="bg-mood-lime rounded-3xl">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
           maxDate={dayjs(new Date())}

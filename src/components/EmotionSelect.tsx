@@ -24,6 +24,7 @@ export default function EmotionSelect({
           <div key={mood.id} className="p-2 w-1/4">
             <label>
               <input
+                required
                 id={mood.name}
                 value={mood.name}
                 type="radio"

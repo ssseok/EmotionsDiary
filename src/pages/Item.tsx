@@ -66,9 +66,7 @@ export default function Item() {
     setEditingMessage(item.diary);
   }, [diaryList, id]);
 
-  useEffect(() => {
-    // console.log("selectedDiary", selectedDiary);
-  }, [selectedDiary]);
+  useEffect(() => {}, [selectedDiary]);
 
   // view
   return (
@@ -106,7 +104,7 @@ export default function Item() {
             <DiaryInput
               value={editingMessage}
               readonly={!isEditMode}
-              bgColor={isEditMode ? "" : "bg-mood-purple"}
+              bgColor={isEditMode ? "" : "bg-mood-lime"}
               isReset={false}
               isFocus={isEditMode}
               onChange={handleChange}

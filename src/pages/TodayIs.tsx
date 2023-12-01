@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { diaryListState, diaryState } from "../components/data/dataState";
 import { useRecoilState, useRecoilValue } from "recoil";
 import Button from "../components/Button";
+import { toast } from "react-toastify";
 
 export default function TodayIs() {
   const navigate = useNavigate();
@@ -18,17 +19,19 @@ export default function TodayIs() {
     const result = { ...diary, date };
     setDiary(result);
   };
-
   const handleEmotionChage = (mood: MoodType) => {
     setDiary(prev => ({ ...prev, mood }));
   };
 
   const handleClick = () => {
+    if (diary?.mood?.description === "" || diary?.date?.totalDate === "") {
+      toast.error("오늘 하루와 날짜를 선택해주세요.");
+      return;
+    }
     const id = new Date().getTime() * 1000 * 60;
     setDiary(prev => ({ ...prev, id }));
     navigate("/mood");
   };
-
   return (
     <>
       <div className="pb-2">

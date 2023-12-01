@@ -19,7 +19,7 @@ const today = (): DateType => {
     month,
     day,
     dayOfWeeks,
-    totalDate: `${year}-${month}-${day}`,
+    totalDate: "",
     totalText,
   };
   return resultDate;
@@ -41,8 +41,8 @@ export const initialDiary: DiaryType = {
   diary: "",
   mood: {
     id: 1,
-    name: "depressed",
-    description: "우울해",
+    name: "",
+    description: "",
   },
 };
 

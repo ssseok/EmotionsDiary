@@ -12,9 +12,7 @@ export default function Home() {
   const diaryList = useRecoilValue(diaryListState);
   const calendarDate = useRecoilValue(calendarDateState);
 
-  useEffect(() => {
-    // console.log(diaryList);
-  }, [diaryList]);
+  useEffect(() => {}, [diaryList]);
 
   return (
     <div className="flex flex-col h-full items-center">
@@ -28,7 +26,7 @@ export default function Home() {
 
       <Link
         to={"/today-is"}
-        className="w-10 h-10 bg-mood-purple rounded-full flex items-center justify-center item relative mt-auto"
+        className="w-10 h-10 bg-mood-lime rounded-full flex items-center justify-center item relative mt-auto"
       >
         <i className="block w-1 h-4 bg-neutral-800"></i>
         <i className="block w-1 h-4 bg-neutral-800 absolute transform rotate-90"></i>

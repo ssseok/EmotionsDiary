@@ -12,7 +12,7 @@ export default function Button({
       {type === "submit" ? (
         <button
           type={type}
-          className={`w-full py-4 px-1 block rounded-3xl text-white text-sm font-medium bg-mood-blue-700 ${className}`}
+          className={`w-full py-4 px-1 block rounded-3xl text-white text-sm font-medium bg-mood-lime-700 ${className}`}
           form={formId}
         >
           {text}
@@ -20,7 +20,7 @@ export default function Button({
       ) : (
         <button
           type={"button"}
-          className={`w-full py-4 px-1 block rounded-3xl text-white text-sm font-medium bg-mood-blue-700 ${className}`}
+          className={`w-full py-4 px-1 block rounded-3xl text-white text-sm font-medium bg-mood-lime-700 ${className}`}
           onClick={onClick}
         >
           {text}
