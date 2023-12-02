@@ -193,8 +193,10 @@ To deploy this project run
 
 ## 👀 Usage
 
-<div>
-<video src="public/myvideo.mov" controls  />
+<div align="center">
+  <video controls>
+    <source src="public/myvideo.mov" type="video/mp4" />
+  </video>
 </div>
 
 <!-- Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
