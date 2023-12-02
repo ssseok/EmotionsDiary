@@ -195,7 +195,7 @@ To deploy this project run
 
 <div align="center">
   <video controls width="250">
-    <source src="public/myvideo.mov" type="video/mp4"/>
+    <source src="public/emotion.mov" type="video/mp4"/>
   </video>
 </div>
 
