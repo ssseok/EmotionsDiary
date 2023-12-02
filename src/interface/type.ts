@@ -5,14 +5,14 @@ export interface LayoutProps {
 
 // data
 export interface MoodType {
-  id: number;
+  id: number | null;
   name: string;
   description: string;
 }
 export interface DateType {
-  year: number;
-  month: number;
-  day: number;
+  year: number | null;
+  month: number | null;
+  day: number | null;
   dayOfWeeks: string;
   totalDate: string;
   totalText: string;

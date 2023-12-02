@@ -19,7 +19,7 @@ const today = (): DateType => {
     month,
     day,
     dayOfWeeks,
-    totalDate: "",
+    totalDate: `${year}-${month}-${day}`,
     totalText,
   };
   return resultDate;
@@ -37,10 +37,17 @@ const todayCalendarDate = (): CalendarDateType => {
 
 export const initialDiary: DiaryType = {
   id: 1,
-  date: today(),
+  date: {
+    year: null,
+    month: null,
+    day: null,
+    dayOfWeeks: "",
+    totalDate: "",
+    totalText: "",
+  },
   diary: "",
   mood: {
-    id: 1,
+    id: null,
     name: "",
     description: "",
   },

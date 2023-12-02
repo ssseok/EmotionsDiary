@@ -24,14 +24,32 @@ export default function TodayIs() {
   };
 
   const handleClick = () => {
-    if (diary?.mood?.description === "" || diary?.date?.totalDate === "") {
-      toast.error("오늘 하루와 날짜를 선택해주세요.");
+    // 날짜와 감정이 모두 선택되었는지 확인
+    if (
+      !diary.date ||
+      !diary.mood ||
+      diary.mood.description === "" ||
+      diary.date.totalDate === ""
+    ) {
+      toast.error("날짜와 감정을 모두 선택해주세요.");
       return;
     }
+
+    // 이미 선택된 날짜인지 확인
+    const isDateAlreadyUsed = diaryList.some(
+      diaryItem => diaryItem.date.totalDate === diary.date.totalDate,
+    );
+
+    if (isDateAlreadyUsed) {
+      toast.error("이미 선택된 날짜입니다. 다른 날짜를 선택해주세요.");
+      return;
+    }
+
     const id = new Date().getTime() * 1000 * 60;
     setDiary(prev => ({ ...prev, id }));
     navigate("/mood");
   };
+
   return (
     <>
       <div className="pb-2">
