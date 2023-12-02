@@ -192,9 +192,8 @@ To deploy this project run
 <!-- Usage -->
 
 ## 👀 Usage
-<div align="center">
 ![화면 기록 2023-12-02 오후 7 35 55](https://github.com/ssseok/EmotionsDiary/assets/87220944/daf2ac00-6c34-44ac-ba9f-34301a410472)
-</div>
+
 
 <!-- Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
 
