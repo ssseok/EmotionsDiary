@@ -194,8 +194,8 @@ To deploy this project run
 ## 👀 Usage
 
 <div align="center">
-  <video controls>
-    <source src="public/myvideo.mov" type="video/mp4">
+  <video controls width="250">
+    <source src="public/myvideo.mov" type="video/mp4"/>
   </video>
 </div>
 
